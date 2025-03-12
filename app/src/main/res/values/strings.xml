@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">PhotoAlbum</string>
-    <string name="next">next</string>
-    <string name="back">back</string>
-    <string name="image_search">Image Search: </string>
+    <string name="next">Next</string>
+    <string name="back">Previous</string>
+    <string name="image_search">Enter image number (1–5)</string>
+    <string name="goToImage">Go to image</string>
 </resources>

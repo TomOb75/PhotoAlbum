@@ -24,6 +24,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -55,11 +56,11 @@ fun SlideShow(modifier: Modifier = Modifier) {
         else -> R.drawable.peoples
     }
     val captionResource = when(slideNumber){
-        1 -> "1. This is a bus I saw"
-        2 -> "2. This is the 'worlds tallest' filing cabinet"
-        3 -> "3. This is a house on Fort Ticonderoga"
-        4 -> "4. This is the lake by Fort Ticonderoga"
-        else -> "5. This is a flag on Fort Ticonderoga"
+        1 -> "$slideNumber. This is a bus I saw"
+        2 -> "$slideNumber. This is the 'worlds tallest' filing cabinet"
+        3 -> "$slideNumber. This is a house on Fort Ticonderoga"
+        4 -> "$slideNumber. This is the lake by Fort Ticonderoga"
+        else -> "$slideNumber. This is a flag on Fort Ticonderoga"
     }
     Column(
         modifier = modifier.fillMaxSize().padding(16.dp),
@@ -82,12 +83,12 @@ fun SlideShow(modifier: Modifier = Modifier) {
             Button(
                 onClick = { slideNumber = if (slideNumber > 1) slideNumber-1 else 5}
             ) {
-                Text("Previous")
+                Text(stringResource(R.string.back))
             }
             Button(
                 onClick = {slideNumber = if (slideNumber < 5) slideNumber+1 else 1 }
             ) {
-                Text("Next")
+                Text(stringResource(R.string.next))
             }
         }
 
@@ -95,7 +96,7 @@ fun SlideShow(modifier: Modifier = Modifier) {
         TextField(
             value = inputText,
             onValueChange = { inputText = it },
-            label = { Text("Enter image number (1-5)") },
+            label = { Text(stringResource(R.string.image_search)) },
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
             singleLine = true,
             modifier = Modifier.fillMaxWidth(0.8f)
@@ -110,7 +111,7 @@ fun SlideShow(modifier: Modifier = Modifier) {
             },
             enabled = inputText.toIntOrNull() in 1..5
         ) {
-            Text("Go to Image")
+            Text(stringResource(R.string.goToImage))
         }
     }
 }
