@@ -68,7 +68,7 @@ fun SlideShow(modifier: Modifier = Modifier) {
     ) {
         Image(
             painter = painterResource(imageResource),
-            contentDescription = "Slide $slideNumber"
+            contentDescription = captionResource
         )
         Text(
             text = captionResource,
